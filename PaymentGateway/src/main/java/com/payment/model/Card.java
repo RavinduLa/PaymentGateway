@@ -11,7 +11,7 @@ public class Card {
 
 	@Id
 	@Column(name="card_number")
-	private long cardNumber;//16 digit unique number
+	private long cardNumber;//16 digit unique number bigInt(100) was used in Mysql as datatype. might have compatibilty issues.
 	@Column(name="expiration_year")
 	private int expirationYear;
 	@Column(name="expiration_month")

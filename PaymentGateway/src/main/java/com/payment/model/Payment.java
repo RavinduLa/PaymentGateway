@@ -6,20 +6,27 @@ public class Payment {
 	private int userExpirationYear;
 	private int userExpirationmonth;
 	private int userCvc;
+	private int merchantId;
 	private double amount;
 	
 	public Payment() {
 		
 	}
 	
-	public Payment(long usercardNumber, int userExpirationYear, int userExpirationmonth, int userCvc, double amount) {
+	
+
+	public Payment(long usercardNumber, int userExpirationYear, int userExpirationmonth, int userCvc, int merchantId,
+			double amount) {
 		super();
 		this.usercardNumber = usercardNumber;
 		this.userExpirationYear = userExpirationYear;
 		this.userExpirationmonth = userExpirationmonth;
 		this.userCvc = userCvc;
+		this.merchantId = merchantId;
 		this.amount = amount;
 	}
+
+
 
 	public long getUsercardNumber() {
 		return usercardNumber;
@@ -60,11 +67,22 @@ public class Payment {
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
+	
+
+	public int getMerchantId() {
+		return merchantId;
+	}
+
+	public void setMerchantId(int merchantId) {
+		this.merchantId = merchantId;
+	}
+
 
 	@Override
 	public String toString() {
 		return "Payment [usercardNumber=" + usercardNumber + ", userExpirationYear=" + userExpirationYear
-				+ ", userExpirationmonth=" + userExpirationmonth + ", userCvc=" + userCvc + ", amount=" + amount + "]";
+				+ ", userExpirationmonth=" + userExpirationmonth + ", userCvc=" + userCvc + ", merchantId=" + merchantId
+				+ ", amount=" + amount + "]";
 	}
 	
 	
