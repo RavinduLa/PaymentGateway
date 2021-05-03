@@ -16,7 +16,7 @@ import com.payment.model.Payment;
 import com.payment.model.Transaction;
 
 @RestController
-@RequestMapping("paytime/api/")
+@RequestMapping("paytime/api")
 @CrossOrigin(origins ="*",allowedHeaders = "*",exposedHeaders = "*")
 public class PaymentController {
 	
@@ -31,6 +31,13 @@ public class PaymentController {
 	
 	@PostMapping(value = "makePayment")
 	public boolean makePayment(@RequestBody Payment payment) {
+		
+		System.out.println();
+		System.out.println("*****Paytime Payment Gateway*****");
+		System.out.println("Payment request received");
+		System.out.println("Initiating process....");
+		
+		
 		long userCardNumber = payment.getUsercardNumber();
 		int userExpirationYear = payment.getUserExpirationYear();
 		int userExpirationMonth = payment.getUserExpirationmonth();
@@ -52,9 +59,23 @@ public class PaymentController {
 			cardValidated = validateCard(userCardNumber, userExpirationYear, userExpirationMonth, userCvc, card);
 			
 			if(cardValidated) {
-				System.out.println("Card succesfully validated. Returning true the merchant");
-				processTransaction(paymentAmount, userCardNumber, payment.getMerchantId()); //dummy call to make payment.
-				return true;
+				System.out.println("Card succesfully validated. Proceeding to transaction");
+				boolean transactionCompleted = processTransaction(paymentAmount, userCardNumber, payment.getMerchantId()); //dummy call to make payment.
+				
+				if(transactionCompleted)
+				{
+					System.out.println("Transaction succesfully completed.");
+					System.out.println("Returning true to the merchant");
+					return true;
+				}
+				else
+				{
+					System.out.println("Error in processing transaction.");
+					System.out.println("Returning false to the merchant.");
+					return false;
+				}
+				
+				
 			}
 			else {
 				System.out.println("Card could not be validated. Returning false to the merchant.");
@@ -89,6 +110,8 @@ public class PaymentController {
 	
 	public boolean processTransaction(double amount, long cardNumber, int merchantId) {
 		
+		System.out.println("Initiating transaction....");
+		
 		Calendar current = Calendar.getInstance();
 		
 		//part of bank
@@ -100,9 +123,11 @@ public class PaymentController {
 		newTransaction.setTransactionTime(current);
 		
 		if(transactionrepository.save(newTransaction) != null) {
+			System.out.println("Transaction succesfully registered.");
 			return true;
 		}
 		else {
+			System.out.println("Error in registering the transaction.");
 			return false;
 		}
 		

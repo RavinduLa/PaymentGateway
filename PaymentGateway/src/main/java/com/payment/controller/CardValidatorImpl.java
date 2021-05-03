@@ -17,7 +17,12 @@ public class CardValidatorImpl implements CardValidator {
 				return true;
 			}
 			else {
-				System.out.println("Card marked enabled true. But, Card status is: "+ card.getStatus());
+				System.out.println();
+				System.out.println("!!!CHECK!!!");
+				System.out.println("Card marked enabled true.");
+				System.out.println("But, Card status does not match!");
+				System.out.println(" Card status is: "+ card.getStatus());
+				System.out.println();
 				return false;
 			}
 			
