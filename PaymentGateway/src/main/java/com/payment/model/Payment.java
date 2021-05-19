@@ -2,13 +2,13 @@ package com.payment.model;
 
 public class Payment {
 	
-	private long usercardNumber;
-	private int userExpirationYear;
-	private int userExpirationmonth;
-	private int userCvc;
-	private int merchantId;
-	private double amount;
-	private String cardType;
+	private long usercardNumber; //user entered card number
+	private int userExpirationYear; //user entered expiration year
+	private int userExpirationmonth; //user entered expiration month
+	private int userCvc; //user entered cvc
+	private int merchantId;  //the merchant id -merchant must provide this
+	private double amount;  //calculated amount agreed by user and merchant
+	private String cardType;  //card type -visa, master etc.
 	
 	public Payment() {
 		

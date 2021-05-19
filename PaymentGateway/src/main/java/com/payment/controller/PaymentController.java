@@ -32,11 +32,14 @@ public class PaymentController {
 	}
 	
 	
+	//makePayment POST call is received here
 	@PostMapping(value = "makePayment")
 	public PaymentResponse makePayment(@RequestBody Payment payment) {
 		
+		//call payment API
 		paymentResponse=  paymentApi.makePayment(payment);
 	
+		//return the response
 		return paymentResponse;
 		
 	}

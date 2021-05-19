@@ -5,10 +5,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class PaymentResponse {
 	
-	private String status;
-	private boolean validCard;
-	private boolean paymentSuccesful;
-	private String message;
+	private String status;  //payment status
+	private boolean validCard;  //whether the card is valid
+	private boolean paymentSuccesful; //whether the payment is successful
+	private String message;  //message the client application
 	
 	public PaymentResponse() {
 		

@@ -16,19 +16,19 @@ public class Transaction {
 	@Id
 	@Column(name="transaction_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int transactionId;
+	private int transactionId;  //auto generated transaction id
 	
 	@Column(name="card_number")
-	private long cardNumber;
+	private long cardNumber;  //verified card number 
 	
 	@Column(name="amount")
-	private double amount;
+	private double amount; //amount
 	
 	@Column(name="merchant")
-	private int merchant;
+	private int merchant; //merchant id
 	
 	@Column(name="transaction_time")
-	private Calendar transactionTime;
+	private Calendar transactionTime; //time stamp of the transaction
 	
 	public Transaction() {
 		
