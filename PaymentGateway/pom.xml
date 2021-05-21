@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example.security</groupId>
 	<artifactId>PaymentGateway</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>PaymentGateway</name>
 	<description>PaymentGateway for ecommerce app of DS assignment</description>
 	<properties>
